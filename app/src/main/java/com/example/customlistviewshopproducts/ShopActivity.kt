@@ -1,5 +1,6 @@
 package com.example.customlistviewshopproducts
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -12,6 +13,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
@@ -20,6 +23,7 @@ import java.io.IOException
 
 class ShopActivity : AppCompatActivity() {
 
+    private lateinit var photoPickerLauncher: ActivityResultLauncher<Intent>
     var bitmap: Bitmap? = null
     var products: MutableList<Product> = mutableListOf()
     private val GALLERY_REQUEST = 302
@@ -51,11 +55,22 @@ class ShopActivity : AppCompatActivity() {
         title = "Магазин продуктов"
         toolbarMain.subtitle = "by Rocky"
 
+        photoPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val selectedImage = result.data?.data  // selectedImage для загрузки изображения
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+                editImageIV.setImageBitmap(bitmap)
+            }
+        }
 
         editImageIV.setOnClickListener {
             val photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "image/*"
-            startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
+            photoPickerLauncher.launch(photoPickerIntent)
         }
 
         addBTN.setOnClickListener {
@@ -72,6 +87,9 @@ class ShopActivity : AppCompatActivity() {
             productPriceET.text.clear()
             editImageIV.setImageResource(R.drawable.ic_product)
         }
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -84,23 +102,5 @@ class ShopActivity : AppCompatActivity() {
             R.id.exitMenuMain -> finishAffinity()
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        editImageIV = findViewById(R.id.editImageIV)
-        when(resultCode) {
-            GALLERY_REQUEST -> {
-                if (resultCode === RESULT_OK) {
-                    val selectedImage: Uri? = data?.data
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImage)
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    }
-                    editImageIV.setImageBitmap(bitmap)
-                }
-            }
-        }
     }
 }
