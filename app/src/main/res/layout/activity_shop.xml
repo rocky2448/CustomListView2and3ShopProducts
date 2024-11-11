@@ -22,12 +22,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/editImageIV"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="20dp"
-            android:contentDescription="@string/text_view_image_product"
             android:src="@drawable/ic_product" />
 
         <LinearLayout
