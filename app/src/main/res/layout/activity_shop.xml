@@ -40,15 +40,25 @@
                 android:id="@+id/productNameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/text_view_name_product"
-                android:textSize="22sp" />
+                android:hint="@string/edit_text_name_product"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/productPriceET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/text_view_price_product"
-                android:textSize="22sp" />
+                android:hint="@string/edit_text_price_product"
+                android:textSize="22sp"
+                android:textStyle="italic"/>
+
+            <EditText
+                android:id="@+id/descriptionET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edit_text_description"
+                android:textSize="18sp"
+                android:fontFamily="monospace" />
 
         </LinearLayout>
 

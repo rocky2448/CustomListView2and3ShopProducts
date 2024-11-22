@@ -1,4 +1,4 @@
-package com.example.customlistviewshopproducts
+package com.example.customlistview2shopproducts
 
 import org.junit.Test
 

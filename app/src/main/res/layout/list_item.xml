@@ -32,7 +32,7 @@
                     android:id="@+id/productNameTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/text_view_name_product"
+                    android:hint="@string/edit_text_name_product"
                     android:textSize="22sp"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
@@ -42,7 +42,7 @@
                     android:id="@+id/productPriceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/text_view_price_product"
+                    android:hint="@string/edit_text_price_product"
                     android:textSize="20sp" />
 
             </LinearLayout>

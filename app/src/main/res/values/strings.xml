@@ -2,9 +2,11 @@
     <string name="app_name">Shop Products</string>
     <string name="button_start">Создать магазин</string>
     <string name="text_view_title">Магазин продуктов</string>
-    <string name="text_view_name_product">Назавание продукта</string>
-    <string name="text_view_price_product">Цена продукта</string>
-    <string name="text_view_image_product">Фото продукта</string>
+    <string name="edit_text_name_product">Назавание продукта</string>
+    <string name="edit_text_price_product">Цена продукта</string>
+    <string name="image_view_image_product">Фото продукта</string>
     <string name="button_add">Добавить</string>
     <string name="exit">Выход</string>
+    <string name="edit_text_description">Описание</string>
+    <string name="button_save">Сохранить</string>
 </resources>

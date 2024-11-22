@@ -1,4 +1,4 @@
-package com.example.customlistviewshopproducts
+package com.example.customlistview2shopproducts
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var startBTN: Button
     private lateinit var imageIV: ImageView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         startBTN.setOnClickListener {
             val intent = Intent(this, ShopActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

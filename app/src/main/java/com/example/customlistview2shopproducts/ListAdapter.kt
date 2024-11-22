@@ -1,6 +1,7 @@
-package com.example.customlistviewshopproducts
+package com.example.customlistview2shopproducts
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ class ListAdapter(context: Context, productList: MutableList<Product>): ArrayAda
         val productNameTV = view?.findViewById<TextView>(R.id.productNameTV)
         val productPriceTV = view?.findViewById<TextView>(R.id.productPriceTV)
 
-        imageViewIV?.setImageBitmap(product?.image)
+        imageViewIV?.setImageURI(Uri.parse(product?.image))
         productNameTV?.text = product?.name
         productPriceTV?.text = product?.price
         return view!!

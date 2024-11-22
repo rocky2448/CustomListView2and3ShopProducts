@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.customlistviewshopproducts"
+    namespace = "com.example.customlistview2shopproducts"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.customlistviewshopproducts"
+        applicationId = "com.example.customlistview2shopproducts"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
